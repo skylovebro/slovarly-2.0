@@ -69,7 +69,7 @@ def add_window():
 
     w_in = ctk.CTkEntry(win, placeholder_text="Слово", width=200)
     w_in.pack(pady=10)
-    d_in = ctk.CTkEntry(win, placeholder_text="Перевод", width=200)
+    d_in = ctk.CTkEntry(win, placeholder_text="Значение", width=200)
     d_in.pack(pady=10)
 
     def save():
@@ -108,7 +108,7 @@ def start_quiz():
         else:
             state["streak"] = 0
             label_res.configure(text=f"ОШИБКА! Это: {state['w']}", text_color="red")
-            label_score.configure(text=f"🔥 ВЕРНО ПОДРЯД: {state['streak']}")
+            label_score.configure(text=f"ВЕРНО ПОДРЯД: {state['streak']}")
 
     label_q = ctk.CTkLabel(q_win, text="", font=("Arial", 18))
     label_q.pack(pady=20)
@@ -116,7 +116,7 @@ def start_quiz():
     ans_in = ctk.CTkEntry(q_win, width=200)
     ans_in.pack(pady=10)
 
-    label_score = ctk.CTkLabel(q_win, text="🔥 ВЕРНО ПОДРЯД: 0", font=("Arial", 14, "bold"), text_color="orange")
+    label_score = ctk.CTkLabel(q_win, text="ВЕРНО ПОДРЯД: 0", font=("Arial", 14, "bold"), text_color="orange")
     label_score.pack(pady=5)
 
     label_res = ctk.CTkLabel(q_win, text="")
@@ -131,7 +131,7 @@ app.title("Slovarly 2.0")
 app.geometry("400x400")
 
 d_streak, _ = get_days_streak()
-ctk.CTkLabel(app, text=f"ДНЕЙ В ПРОГРАММЕ: {d_streak}", font=("Arial", 14), text_color="gray").pack(pady=10)
+ctk.CTkLabel(app, text=f"ДНЕЙ ПОДРЯД: {d_streak}", font=("Arial", 14), text_color="gray").pack(pady=10)
 ctk.CTkLabel(app, text="SLOVARLY 2.0", font=("Arial", 28, "bold")).pack(pady=20)
 
 ctk.CTkButton(app, text="Добавить слово", width=220, height=45, command=add_window).pack(pady=10)
